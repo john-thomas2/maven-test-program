@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +18,7 @@ public class JsonReader implements Reader {
     @Override
     public void reader(Connection con, String filename) throws IOException, SQLException, ParseException {
         JSONParser parser = new JSONParser();
-        JSONArray array = (JSONArray) parser.parse(new java.io.FileReader("C:\\Users\\john.thomas2\\IdeaProjects\\HelloWorld\\src\\"+filename));
+        JSONArray array = (JSONArray) parser.parse(new FileReader("C:\\Users\\john.thomas2\\IdeaProjects\\maven_test_program\\src\\main\\resources\\"+filename));
 
         for (Object obj : array) {
             JSONObject json = (JSONObject) obj;

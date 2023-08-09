@@ -9,6 +9,8 @@ import org.supercsv.prefs.CsvPreference;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -23,7 +25,7 @@ public class CsvReader implements Reader {
     @Override
     public void reader(Connection con,String filename) throws IOException, SQLException {
         int count=0,batch=20;
-        String Sql = "INSERT INTO test VALUES(?,?,?,?,?,?,?,?,?,?) ";
+        String Sql = "INSERT INTO test VALUES(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement st = con.prepareStatement(Sql);
 
         String[] header = {"Year", "Indagg", "Indcode", "Indname", "units", "varcode", "varname", "varval", "val", "indcd"};
@@ -41,7 +43,7 @@ public class CsvReader implements Reader {
                 new NotNull(),
         };
 
-        beanReader = new CsvBeanReader(new FileReader("C:\\Users\\john.thomas2\\IdeaProjects\\HelloWorld\\src\\"+filename),
+        beanReader = new CsvBeanReader(new FileReader("src\\main\\resources\\"+filename),
                 CsvPreference.STANDARD_PREFERENCE);
 
         Review bean = null;

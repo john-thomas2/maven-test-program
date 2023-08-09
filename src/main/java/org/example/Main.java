@@ -4,8 +4,6 @@ import org.json.simple.parser.ParseException;
 
 import java.sql.*;
 import java.io.*;
-import java.util.Properties;
-import java.util.Scanner;
 
 
 public class Main {
